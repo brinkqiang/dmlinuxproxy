@@ -30,7 +30,7 @@ start_rule(){
 	# Add any UDP rules
 	#ip route add local default dev lo table 100
 	#ip rule add fwmark 1 lookup 100
-	#iptables -t mangle -A SHADOWSOCKS -p udp --dport 53 -j TPROXY --on-port $local_port --tproxy-mark 0x01/0x01
+	iptables -t mangle -A SHADOWSOCKS -p udp --dport 53 -j TPROXY --on-port $local_port --tproxy-mark 0x01/0x01
 }
 
 apply_redir(){
