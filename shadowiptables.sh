@@ -28,9 +28,9 @@ start_rule(){
 	iptables -t nat -C OUTPUT -p tcp -s $src_addr -j SHADOWTABLES >& /dev/null \
 		|| iptables -t nat -A OUTPUT -p tcp -s $src_addr -j SHADOWTABLES
 	# Add any UDP rules
-	ip route add local default dev lo table 100
-	ip rule add fwmark 1 lookup 100
-	iptables -t mangle -A SHADOWSOCKS -p udp --dport 53 -j TPROXY --on-port $local_port --tproxy-mark 0x01/0x01
+	#ip route add local default dev lo table 100
+	#ip rule add fwmark 1 lookup 100
+	#iptables -t mangle -A SHADOWSOCKS -p udp --dport 53 -j TPROXY --on-port $local_port --tproxy-mark 0x01/0x01
 }
 
 apply_redir(){
